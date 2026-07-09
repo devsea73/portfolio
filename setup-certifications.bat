@@ -1,0 +1,7 @@
+@echo off
+REM Helper script to organize certification images
+REM Usage: Save your certification images to a folder, then run this script and select the folder
+
+echo ============================================\nCertification Image Organizer\n============================================\n
+
+setlocal enabledelayedexpansion\n\nREM Define source folder (modify this to your download folder)\nset \"SOURCE_FOLDER=%USERPROFILE%\\Downloads\"\nset \"DEST_FOLDER=%~dp0public\\certifications\"\n\necho.\necho Certification images will be organized to:\necho %DEST_FOLDER%\necho.\necho Please ensure your certification images are named or files match these patterns:\necho   - AWS Cloud Practitioner badge\necho   - AWS Developer Associate badge\necho   - Microsoft Azure Administrator badge\necho   - Databricks Fundamentals certificate\necho   - IBM Generative AI Python certificate\necho   - IBM Data Analysis certificate\necho   - IBM AI Flask certificate\necho   - IBM Python Data Science certificate\necho.\necho ============================================\necho.\n\necho To manually organize:\necho 1. Open this folder: %DEST_FOLDER%\necho 2. Copy your certification images here\necho 3. Rename files to match the list in CERTIFICATIONS_SETUP.md\necho 4. Run 'npm run dev' to see them in the portfolio\necho.\npause\n
