@@ -10,20 +10,15 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  background: radial-gradient(circle at 12% 14%, rgba(56, 189, 248, 0.08) 0%, rgba(56, 189, 248, 0) 28%), radial-gradient(circle at 84% 18%, rgba(11, 143, 135, 0.08) 0%, rgba(11, 143, 135, 0) 24%), linear-gradient(180deg, #fbfdff 0%, var(--bg-primary) 48%, var(--bg-secondary) 100%);
+  background: #eef7f7;
   color: var(--ink);
   font-family: var(--font-space-grotesk), "Segoe UI", sans-serif;
 }
-.three-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.52;
-}
-.three-bg canvas {
-  width: 100% !important;
-  height: 100% !important;
+.portfolio-shell {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+  background: radial-gradient(circle at 12% 14%, rgba(56, 189, 248, 0.08) 0%, rgba(56, 189, 248, 0) 28%), radial-gradient(circle at 84% 18%, rgba(11, 143, 135, 0.08) 0%, rgba(11, 143, 135, 0) 24%), linear-gradient(180deg, #fbfdff 0%, var(--bg-primary) 48%, var(--bg-secondary) 100%);
 }
 * {
   box-sizing: border-box;
@@ -152,8 +147,9 @@ h6 {
   background: rgba(11, 143, 135, 0.08);
 }
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   gap: 12px;
 }
 .skill-branches {
@@ -174,6 +170,8 @@ h6 {
   align-items: center;
   gap: 10px;
   min-height: 52px;
+  width: fit-content;
+  max-width: min(100%, 320px);
   border: 1px solid rgba(11, 143, 135, 0.18);
   border-radius: 999px;
   padding: 8px 12px;
@@ -193,6 +191,7 @@ h6 {
   font-size: 16px;
 }
 .skill-name {
+  flex: 0 1 auto;
   color: #1f2937;
   font-size: 0.9rem;
   line-height: 1.3;
@@ -301,74 +300,29 @@ h6 {
 }
 .cert-gallery-card {
   border-radius: 14px;
+  overflow: hidden;
 }
-.cert-carousel {
-  padding: 8px;
+.cert-marquee {
+  padding: 8px 0;
+  overflow: hidden;
+  position: relative;
 }
-.cert-carousel .slick-slide {
-  display: flex !important;
-  align-items: stretch;
-}
-.cert-carousel .slick-arrow {
-  width: 42px;
-  height: 42px;
-  z-index: 2;
-  background: rgba(11, 143, 135, 0.18) !important;
-  border-radius: 50%;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.25s ease;
-}
-.cert-carousel .slick-arrow:hover {
-  background: rgba(11, 143, 135, 0.34) !important;
-  transform: scale(1.06);
-}
-.cert-carousel .slick-arrow::before {
-  font-size: 18px;
-  color: #0b8f87;
-}
-.cert-carousel .slick-dots {
-  bottom: -42px;
-  display: flex !important;
-  justify-content: center;
-}
-.cert-carousel .cert-carousel-dots li {
-  width: 10px;
-  height: 10px;
-  margin: 0 8px;
-  border-radius: 50%;
-}
-.cert-carousel .cert-carousel-dots li.slick-active button {
-  background-color: #0b8f87 !important;
-  width: 10px;
-  height: 10px;
-}
-.cert-carousel .cert-carousel-dots button {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: rgba(11, 143, 135, 0.3) !important;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.cert-carousel .cert-carousel-dots button:hover {
-  background-color: rgba(11, 143, 135, 0.5) !important;
-}
-.cert-slide {
-  padding: 8px;
-}
-.cert-slide-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.cert-track {
+  display: flex;
+  flex-wrap: nowrap;
   gap: 14px;
-  align-items: stretch;
+  width: max-content;
+  animation: cert-marquee-scroll 42s linear infinite;
+  will-change: transform;
+}
+.cert-marquee:hover .cert-track {
+  animation-play-state: paused;
 }
 .cert-item {
   display: flex;
   flex-direction: column;
+  flex: 0 0 clamp(260px, 28vw, 340px);
+  width: clamp(260px, 28vw, 340px);
   border: 1px solid rgba(11, 143, 135, 0.12);
   border-radius: 12px;
   padding: 14px;
@@ -399,6 +353,14 @@ h6 {
 .cert-image-wrapper.cert-image-certificate {
   aspect-ratio: auto;
   height: 190px;
+}
+@keyframes cert-marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 .cert-image {
   width: 100%;
@@ -485,18 +447,13 @@ h6 {
     font-size: clamp(1.8rem, 4.6vw, 2.4rem);
     line-height: 1.15;
   }
-  .cert-carousel {
-    padding: 12px;
-  }
-  .cert-slide-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
   .cert-item {
+    flex-basis: clamp(240px, 44vw, 320px);
+    width: clamp(240px, 44vw, 320px);
     min-height: 435px;
   }
   .skills-grid {
-    grid-template-columns: 1fr;
+    gap: 10px;
   }
   .skill-branches {
     gap: 14px;
@@ -596,30 +553,15 @@ h6 {
     height: 40px;
     min-width: 40px;
   }
-  .cert-carousel {
-    padding: 0;
-  }
-  .cert-slide-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  .cert-slide {
-    padding: 6px;
-  }
   .cert-item {
+    flex-basis: min(82vw, 340px);
+    width: min(82vw, 340px);
     min-height: 420px;
   }
   .cert-image-wrapper,
   .cert-image-wrapper.cert-image-badge,
   .cert-image-wrapper.cert-image-certificate {
     height: 180px;
-  }
-  .cert-carousel .slick-arrow {
-    width: 36px;
-    height: 36px;
-  }
-  .cert-carousel .slick-arrow::before {
-    font-size: 14px;
   }
   .pipeline-grid {
     grid-template-columns: 1fr;
@@ -659,5 +601,13 @@ h6 {
   }
   .portfolio-header .ant-space {
     gap: 8px;
+  }
+  .cert-track {
+    gap: 10px;
+    animation-duration: 36s;
+  }
+  .cert-item {
+    flex-basis: min(84vw, 320px);
+    width: min(84vw, 320px);
   }
 }

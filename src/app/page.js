@@ -1,11 +1,9 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import {
   Badge,
   Card,
-  Carousel,
   Col,
   Divider,
   Layout,
@@ -28,22 +26,8 @@ import {
 const { Header, Content, Footer } = Layout;
 const { Title, Paragraph, Text, Link } = Typography;
 
-const ThreeBackground = dynamic(() => import("@/components/ThreeBackground"), {
-  ssr: false,
-  loading: () => null,
-});
-
-// Helper function to chunk array for multi-item carousel slides.
-const chunkArray = (arr, size) => {
-  const chunks = [];
-  for (let i = 0; i < arr.length; i += size) {
-    chunks.push(arr.slice(i, i + size));
-  }
-  return chunks;
-};
-
 const highlights = [
-  "Senior Data Engineer with 7+ years of experience building scalable cloud data platforms",
+  "Senior Data Engineer with 5+ years of experience building scalable cloud data platforms",
   "Architected multi-petabyte AWS S3 data lake ingesting terabytes of compressed data daily",
   "Built feature serving infrastructure supporting ~1B queries/day with P99 reads under 25ms",
   "End-to-end RAG/vector search pipelines for semantic search and ranking models",
@@ -203,7 +187,7 @@ const certifications = [
     date: "June 17, 2026",
     image: "/certifications/hackerrank-software-engineer.png",
     imageType: "certificate",
-    description: "Recognizes role-based software engineering proficiency through HackerRank’s practical assessment.",
+    description: "Recognizes role-based software engineering proficiency through HackerRank's practical assessment.",
     verifyUrl: "https://www.hackerrank.com/certificates/afd13b2baca8",
   },
   {
@@ -286,7 +270,7 @@ const timelineItems = [
           </div>
           <Title level={4}>Data Engineer, IT Gurus of Atlanta</Title>
         </div>
-        <Text className="muted">February 2022 - May 2025</Text>
+        <Text className="muted">September 2021 - May 2025</Text>
         <ul className="experience-bullets">
           <li>
             Designed, developed, and maintained ETL and ELT pipelines to ingest and transform structured and
@@ -351,8 +335,7 @@ const pipelineStages = [
 
 export default function Home() {
   return (
-    <>
-      <ThreeBackground />
+    <div className="portfolio-shell">
       <Layout className="portfolio-layout">
       <Header className="portfolio-header">
         <div className="brand">JACOB ADAMS</div>
@@ -365,11 +348,11 @@ export default function Home() {
         <section className="hero-section content-section section-hero">
           <Row gutter={[24, 24]} align="middle">
             <Col xs={24} md={16}>
-              <Title>Data Engineer Building Platforms That Scale, Serve, and Convert</Title>
+              <Title>Senior Data Engineer Building Cloud Platforms That Scale and Convert</Title>
               <Paragraph className="hero-copy">
-                I am a Senior Data Engineer based in Kansas City, Missouri with deep
-                experience across cloud lakehouses, distributed ETL, real-time
-                analytics, and machine learning feature infrastructure.
+                Senior Data Engineer based in Kansas City, Missouri with 5+ years of experience
+                building scalable cloud data platforms, ETL pipelines, and analytics solutions
+                across AWS and Azure.
               </Paragraph>
               <Space wrap size={[8, 8]}>
                 <Tag icon={<DatabaseOutlined />} color="processing">
@@ -495,60 +478,49 @@ export default function Home() {
           </Row>
 
           <Card title="Certification Gallery" className="cert-gallery-card">
-            <Carousel
-              className="cert-carousel"
-              dots={{ className: "cert-carousel-dots" }}
-              draggable
-              swipe
-              infinite
-              lazyLoad="ondemand"
-            >
-              {chunkArray(certifications, 3).map((group, slideIndex) => (
-                <div key={`cert-slide-${slideIndex}`} className="cert-slide">
-                  <div className="cert-slide-grid">
-                    {group.map((cert) => (
-                      <div key={cert.title} className="cert-item">
-                        <div
-                          className={`cert-image-wrapper ${
-                            cert.imageType === "badge"
-                              ? "cert-image-badge"
-                              : "cert-image-certificate"
-                          }`}
-                        >
-                          <Image
-                            src={cert.image}
-                            alt={cert.title}
-                            fill
-                            loading="lazy"
-                            sizes="(max-width: 768px) 92vw, (max-width: 1200px) 44vw, 320px"
-                            className="cert-image"
-                            onError={(e) => {
-                              e.currentTarget.style.display = "none";
-                            }}
-                          />
-                        </div>
-                        <div className="cert-details">
-                          <Text strong className="cert-title">
-                            {cert.title}
-                          </Text>
-                          <Text className="cert-issuer">{cert.issuer}</Text>
-                          <Text className="cert-date">{cert.date}</Text>
-                          <Text className="cert-description">{cert.description}</Text>
-                          <Link
-                            href={cert.verifyUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="cert-verify-link"
-                          >
-                            Verify credential
-                          </Link>
-                        </div>
-                      </div>
-                    ))}
+            <div className="cert-marquee" aria-label="Certifications scrolling gallery">
+              <div className="cert-track">
+                {[...certifications, ...certifications].map((cert, index) => (
+                  <div key={`${cert.title}-${index}`} className="cert-item">
+                    <div
+                      className={`cert-image-wrapper ${
+                        cert.imageType === "badge"
+                          ? "cert-image-badge"
+                          : "cert-image-certificate"
+                      }`}
+                    >
+                      <Image
+                        src={cert.image}
+                        alt={cert.title}
+                        fill
+                        loading="lazy"
+                        sizes="(max-width: 768px) 86vw, (max-width: 1200px) 42vw, 320px"
+                        className="cert-image"
+                        onError={(e) => {
+                          e.currentTarget.style.display = "none";
+                        }}
+                      />
+                    </div>
+                    <div className="cert-details">
+                      <Text strong className="cert-title">
+                        {cert.title}
+                      </Text>
+                      <Text className="cert-issuer">{cert.issuer}</Text>
+                      <Text className="cert-date">{cert.date}</Text>
+                      <Text className="cert-description">{cert.description}</Text>
+                      <Link
+                        href={cert.verifyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cert-verify-link"
+                      >
+                        Verify credential
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </Carousel>
+                ))}
+              </div>
+            </div>
           </Card>
         </section>
       </Content>
@@ -565,6 +537,6 @@ export default function Home() {
         </Space>
       </Footer>
       </Layout>
-    </>
+    </div>
   );
 }

@@ -16,7 +16,10 @@ const bitter = Bitter({
 export const metadata = {
   title: "Jacob Adams | Senior Data Engineer",
   description:
-    "Senior Data Engineer portfolio featuring cloud data platforms, ML infrastructure, and large-scale ETL systems.",
+    "Senior Data Engineer with 5+ years building cloud data platforms, ETL pipelines, and analytics systems across AWS and Azure.",
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+  },
 };
 
 export default function RootLayout({ children }) {
