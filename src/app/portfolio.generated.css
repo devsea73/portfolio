@@ -241,11 +241,31 @@ h6 {
 .education-card {
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 .education-content {
   display: flex;
   gap: 16px;
   align-items: flex-start;
+}
+.diploma-section {
+  display: grid;
+  gap: 12px;
+}
+.diploma-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  border: 1px solid rgba(11, 143, 135, 0.15);
+  background: rgba(255, 255, 255, 0.96);
+  overflow: hidden;
+}
+.diploma-image {
+  object-fit: contain;
+  object-position: center;
+  padding: 12px;
 }
 .education-logo {
   flex-shrink: 0;
@@ -404,8 +424,8 @@ h6 {
 }
 .pipeline-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
 }
 .pipeline-card {
   height: 100%;

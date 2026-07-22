@@ -27,57 +27,51 @@ const { Header, Content, Footer } = Layout;
 const { Title, Paragraph, Text, Link } = Typography;
 
 const highlights = [
-  "Senior Data Engineer with 5+ years of experience building scalable cloud data platforms",
-  "Architected multi-petabyte AWS S3 data lake ingesting terabytes of compressed data daily",
-  "Built feature serving infrastructure supporting ~1B queries/day with P99 reads under 25ms",
-  "End-to-end RAG/vector search pipelines for semantic search and ranking models",
-  "Established observability with Prometheus, Grafana, OpenTelemetry, and Sentry",
+  "Built scalable backend services, REST APIs, and data workflows for an AI-powered e-commerce search platform",
+  "Designed ETL/ELT pipelines and AWS data solutions to drive analytics, reporting, and feature indexing",
+  "Engineered search and vector retrieval pipelines to improve product discovery, relevance, and personalized recommendations",
+  "Optimized PostgreSQL and SQL Server data models for performance and large-scale product datasets",
+  "Automated deployments with Docker, GitHub Actions, CI/CD, and cloud monitoring for reliable releases",
 ];
 
 const skillBranches = [
   {
-    branch: "Languages & APIs",
+    branch: "Backend & APIs",
     skills: [
+      { name: "Java", iconType: "code" },
+      { name: "C#", iconType: "code" },
       { name: "Python", iconType: "code" },
-      { name: "SQL", iconType: "database" },
-      { name: "JavaScript/TypeScript", iconType: "code" },
-      { name: "C#/.NET", iconType: "code" },
-      { name: "Bash", iconType: "code" },
+      { name: "TypeScript", iconType: "code" },
+      { name: "Spring Boot", iconType: "code" },
+      { name: "ASP.NET Core", iconType: "code" },
       { name: "FastAPI", iconType: "code" },
+      { name: "Flask", iconType: "code" },
     ],
   },
   {
-    branch: "Cloud & Data Platforms",
+    branch: "Cloud & Data Systems",
     skills: [
-      { name: "AWS (S3, Lambda, Kinesis, Redshift)", iconType: "cloud" },
-      { name: "Azure (Data Factory, Synapse)", iconType: "cloud" },
-      { name: "Databricks/Spark", iconType: "pipeline" },
-      { name: "ClickHouse", iconType: "database" },
+      { name: "AWS (S3, Lambda, API Gateway, Redshift, Glue, Kinesis)", iconType: "cloud" },
+      { name: "Docker", iconType: "cloud" },
+      { name: "Kubernetes", iconType: "cloud" },
+      { name: "Terraform", iconType: "cloud" },
       { name: "PostgreSQL", iconType: "database" },
       { name: "SQL Server", iconType: "database" },
-      { name: "Data Lake Architecture (Delta Lake)", iconType: "database" },
-      { name: "Embedding & Vector Databases", iconType: "ml" },
+      { name: "Redis", iconType: "database" },
+      { name: "Elasticsearch / OpenSearch", iconType: "database" },
     ],
   },
   {
-    branch: "Pipelines, MLOps & Reliability",
+    branch: "Search, Data & Delivery",
     skills: [
-      { name: "ETL/ELT", iconType: "pipeline" },
-      { name: "Batch & Stream Processing", iconType: "pipeline" },
-      { name: "Feature Stores", iconType: "ml" },
-      { name: "RAG Pipelines", iconType: "ml" },
-      { name: "ML Feature Engineering", iconType: "ml" },
-      { name: "Model Serving", iconType: "ml" },
-      { name: "CI/CD & GitHub Actions", iconType: "pipeline" },
-      { name: "Terraform", iconType: "cloud" },
-      { name: "OpenTelemetry", iconType: "pipeline" },
-      { name: "Prometheus & Grafana", iconType: "pipeline" },
-      { name: "Sentry", iconType: "pipeline" },
-      { name: "Data Governance & PII Protection", iconType: "cloud" },
-      { name: "A/B Testing", iconType: "ml" },
-      { name: "Git", iconType: "git" },
-      { name: "Jira & Confluence", iconType: "pipeline" },
-      { name: "Agile/Scrum", iconType: "pipeline" },
+      { name: "REST APIs", iconType: "pipeline" },
+      { name: "OpenAPI / Swagger", iconType: "pipeline" },
+      { name: "gRPC", iconType: "pipeline" },
+      { name: "Microservices", iconType: "pipeline" },
+      { name: "ETL / ELT", iconType: "pipeline" },
+      { name: "Spark / PySpark", iconType: "pipeline" },
+      { name: "Databricks", iconType: "pipeline" },
+      { name: "Search & Vector Retrieval", iconType: "ml" },
     ],
   },
 ];
@@ -102,16 +96,6 @@ const renderSkillIcon = (iconType) => {
 
 const certifications = [
   {
-    title: "AWS Certified Cloud Practitioner",
-    issuer: "Amazon Web Services",
-    date: "August 2023 - May 2028",
-    image: "/certifications/aws-cloud-practitioner.png",
-    imageType: "badge",
-    description: "Validates foundational AWS cloud concepts, security, architecture, and billing knowledge.",
-    verifyUrl:
-      "https://www.credly.com/badges/048b3039-bd82-43af-9f51-19cf092be69d",
-  },
-  {
     title: "AWS Certified Developer - Associate",
     issuer: "Amazon Web Services",
     date: "May 2025 - May 2028",
@@ -133,7 +117,7 @@ const certifications = [
   },
   {
     title: "Databricks Accredited Databricks Fundamentals",
-    issuer: "Databricks Academy",
+    issuer: "Databricks",
     date: "March 2026",
     image: "/certifications/databricks-fundamentals.png",
     imageType: "certificate",
@@ -142,62 +126,13 @@ const certifications = [
       "https://credentials.databricks.com/0c1f0a41-3298-43d4-8c5c-7738aafbd84e#acc.Avmp9xED",
   },
   {
-    title: "Building Generative AI-Powered Applications with Python",
-    issuer: "IBM via Coursera",
-    date: "January 2026",
-    image: "/certifications/ibm-gen-ai-python.png",
-    imageType: "certificate",
-    description: "Highlights Python-based generative AI application development and practical AI integration patterns.",
-    verifyUrl:
-      "https://www.coursera.org/account/accomplishments/verify/BUK44CV8KBHW",
-  },
-  {
-    title: "Data Analysis with Python",
-    issuer: "IBM via Coursera",
-    date: "January 2026",
-    image: "/certifications/ibm-data-analysis.png",
-    imageType: "certificate",
-    description: "Validates data analysis skills using Python for cleaning, visualization, and insight generation.",
-    verifyUrl:
-      "https://www.coursera.org/account/accomplishments/verify/8S22GIL0LZ5Y",
-  },
-  {
-    title: "Developing AI Applications with Python and Flask",
-    issuer: "IBM via Coursera",
-    date: "January 2026",
-    image: "/certifications/ibm-ai-flask.png",
-    imageType: "certificate",
-    description: "Shows experience building AI-powered Python and Flask applications for deployable web solutions.",
-    verifyUrl:
-      "https://www.coursera.org/account/accomplishments/verify/CT9Z68SJIKP3",
-  },
-  {
-    title: "Python for Data Science, AI & Development",
-    issuer: "IBM via Coursera",
-    date: "January 2026",
-    image: "/certifications/ibm-python-data-science.png",
-    imageType: "certificate",
-    description: "Establishes Python fundamentals for data science, AI workflows, and applied development.",
-    verifyUrl:
-      "https://www.coursera.org/account/accomplishments/verify/TSSMKLXJHVI7",
-  },
-  {
-    title: "HackerRank Software Engineer Certificate",
+    title: "Software Engineer Certificate",
     issuer: "HackerRank",
-    date: "June 17, 2026",
+    date: "June 2026",
     image: "/certifications/hackerrank-software-engineer.png",
     imageType: "certificate",
     description: "Recognizes role-based software engineering proficiency through HackerRank's practical assessment.",
     verifyUrl: "https://www.hackerrank.com/certificates/afd13b2baca8",
-  },
-  {
-    title: "TestDome AI Engineer Certificate (Top 10%)",
-    issuer: "TestDome",
-    date: "June 17, 2026",
-    image: "/certifications/testdome-ai-engineer.png",
-    imageType: "certificate",
-    description: "Certifies AI engineering problem-solving ability with a ranking in the top 10% on TestDome.",
-    verifyUrl: "https://www.testdome.com/certificates/aac7c5afc22144849c733a892fe214a8",
   },
 ];
 
@@ -216,39 +151,30 @@ const timelineItems = [
               loading="lazy"
             />
           </div>
-          <Title level={4}>Senior Data Engineer, Constructor</Title>
+          <Title level={4}>Senior Backend Engineer, Constructor</Title>
         </div>
         <Text className="muted">May 2025 - May 2026</Text>
         <ul className="experience-bullets">
           <li>
-            Data lake and ingestion: Architected and maintained a multi-petabyte AWS data lake on S3 ingesting
-            terabytes of compressed event data daily. Built high-throughput ingestion services (Python FastAPI,
-            AWS Lambda, Kinesis) for product and catalog APIs and user-event streams.
+            Designed and built scalable backend services, REST APIs, and data processing workflows for an AI-powered e-commerce search platform using Java, C#, Python, FastAPI, and SQL.
           </li>
           <li>
-            ETL and feature engineering: Designed and implemented scalable batch and micro-batch ETL pipelines
-            (PySpark and Databricks) to compute production ML features such as product CTR and add-to-cart rates.
-            Materialized Parquet and Delta datasets to form an offline feature store with point-in-time correctness.
+            Developed microservices and ingestion services to process product catalogs, inventory, pricing, promotions, and customer interaction data from multiple internal and external systems.
           </li>
           <li>
-            Real-time analytics and serving: Integrated ClickHouse and Cube.dev for sub-minute analytics and query APIs.
-            Implemented a low-latency feature-serving layer (memory-mapped index service) achieving P99 reads under 25 ms
-            for online models.
+            Integrated search infrastructure, vector retrieval systems, and ranking pipelines to improve product discovery, relevance, and personalized recommendations.
           </li>
           <li>
-            ML infrastructure and RAG: Built end-to-end RAG and vector-search pipelines by embedding product and query text,
-            storing vectors for semantic search, and integrating features with ranking models. Automated training and serving
-            via Databricks and cloud endpoints.
+            Optimized PostgreSQL and SQL Server data models to improve query performance, data access efficiency, and platform reliability for large-scale product datasets.
           </li>
           <li>
-            Monitoring, quality, and DevOps: Established observability with Prometheus, Grafana, OpenTelemetry, and Sentry.
-            Added data-quality checks, schema tests, and CI/CD automation with Terraform and GitHub Actions. Participated
-            in on-call rotations to maintain 24/7 reliability.
+            Built high-throughput pipelines with Python, PySpark, AWS services, and Databricks to support indexing, analytics, and machine learning workflows.
           </li>
           <li>
-            Collaboration and impact: Partnered with Data Science, Product, and Customer Success to onboard large retail
-            clients and deliver analytics-ready data per SLAs. Supported pipelines and features behind a search engine
-            serving about 1B queries/day and enabled A/B tests that improved conversion outcomes.
+            Automated deployments and data workflows using Docker, GitHub Actions, CI/CD pipelines, and cloud monitoring tools to improve release reliability.
+          </li>
+          <li>
+            Collaborated with software engineers, ML engineers, data scientists, and product teams to deliver scalable AI-driven features and platform improvements.
           </li>
         </ul>
       </div>
@@ -268,36 +194,30 @@ const timelineItems = [
               loading="lazy"
             />
           </div>
-          <Title level={4}>Data Engineer, IT Gurus of Atlanta</Title>
+          <Title level={4}>Backend Engineer, IT Gurus of Atlanta</Title>
         </div>
-        <Text className="muted">September 2021 - May 2025</Text>
+        <Text className="muted">September 2022 - May 2025</Text>
         <ul className="experience-bullets">
           <li>
-            Designed, developed, and maintained ETL and ELT pipelines to ingest and transform structured and
-            semistructured data from databases, APIs, and enterprise applications into analytics-ready datasets.
+            Designed and developed backend services, REST APIs, and scalable data processing applications using Python, FastAPI, SQL, Spark, and PySpark.
           </li>
           <li>
-            Built data-ingestion frameworks (Python, SQL) and scalable Spark and PySpark workflows for large-volume
-            processing. Materialized Parquet and Delta tables to support analytics and ML.
+            Built ETL/ELT pipelines to ingest, transform, validate, and process structured and semi-structured data from databases, APIs, and cloud platforms.
           </li>
           <li>
-            Developed complex SQL, stored procedures, and dimensional models to support BI reporting and ad hoc analysis.
+            Developed secure APIs with authentication, request validation, asynchronous processing, and OpenAPI/Swagger documentation.
           </li>
           <li>
-            Implemented data quality checks, validation rules, and reconciliation processes to improve data accuracy,
-            integrity, and reliability.
+            Engineered AWS-based data solutions using S3, Glue, Lambda, Redshift, and API Gateway to support analytics, reporting, and operational workflows.
           </li>
           <li>
-            Implemented cloud data solutions using AWS (S3, Glue, Lambda, Redshift) and automated recurring tasks
-            with orchestration tools.
+            Designed relational data models, optimized SQL queries, and improved database performance for large-scale applications.
           </li>
           <li>
-            Troubleshot production pipeline issues, performed root-cause analysis, and supported CI/CD practices
-            using Git and GitHub Actions.
+            Automated deployments, data workflows, and quality checks using Docker, GitHub Actions, CI/CD pipelines, and monitoring solutions.
           </li>
           <li>
-            Collaborated with analysts, product owners, and stakeholders to gather requirements and deliver curated
-            datasets for dashboards. Followed Agile and Scrum delivery methodologies.
+            Partnered with engineers, analysts, and business teams to deliver scalable backend applications and cloud data platforms.
           </li>
         </ul>
       </div>
@@ -308,28 +228,28 @@ const timelineItems = [
 const pipelineStages = [
   {
     title: "Ingest",
-    description: "Capture events, API payloads, and batch files from commerce systems.",
-    stack: "Kinesis, Lambda, FastAPI",
+    description: "Collect product, pricing, inventory, and user interaction data through APIs and event streams.",
+    stack: "AWS Lambda, API Gateway, S3",
   },
   {
     title: "Store",
-    description: "Land raw and curated datasets in a governed lakehouse architecture.",
-    stack: "S3, Delta Lake, Parquet",
+    description: "Persist raw and transformed datasets in cloud storage and relational databases for analytics and search.",
+    stack: "S3, PostgreSQL, SQL Server",
   },
   {
     title: "Transform",
-    description: "Build reliable ETL and feature pipelines with quality checks and tests.",
-    stack: "Databricks, PySpark, Airflow",
+    description: "Build ETL/ELT pipelines with PySpark and Databricks to clean, validate, and prepare data for reporting.",
+    stack: "Databricks, PySpark, Glue",
   },
   {
     title: "Serve",
-    description: "Publish analytics and low-latency features for applications and models.",
-    stack: "ClickHouse, APIs, Online Store",
+    description: "Deliver backend APIs, search indexes, and queryable data models to power product discovery and analytics.",
+    stack: "FastAPI, Spring Boot, Search",
   },
   {
     title: "Observe",
-    description: "Track lineage, SLAs, and reliability with alerts and operational insights.",
-    stack: "OpenTelemetry, Grafana, Sentry",
+    description: "Monitor pipelines, deployments, and data quality through CI/CD and cloud observability tools.",
+    stack: "Docker, GitHub Actions, Cloud Monitoring",
   },
 ];
 
@@ -340,7 +260,7 @@ export default function Home() {
       <Header className="portfolio-header">
         <div className="brand">JACOB ADAMS</div>
         <Space size="middle" wrap>
-          <Badge color="#0b8f87" text="Senior Data Engineer" />
+          <Badge color="#0b8f87" text="Senior Backend & Data Engineer" />
         </Space>
       </Header>
 
@@ -348,24 +268,24 @@ export default function Home() {
         <section className="hero-section content-section section-hero">
           <Row gutter={[24, 24]} align="middle">
             <Col xs={24} md={16}>
-              <Title>Senior Data Engineer Building Cloud Platforms That Scale and Convert</Title>
+              <Title>Senior Backend & Data Engineer Building Scalable APIs and Data Platforms</Title>
               <Paragraph className="hero-copy">
-                Senior Data Engineer based in Kansas City, Missouri with 5+ years of experience
-                building scalable cloud data platforms, ETL pipelines, and analytics solutions
-                across AWS and Azure.
+                Senior Backend & Data Engineer based in Kansas City, Missouri with 5+ years of experience
+                building scalable APIs, distributed systems, and cloud-based data platforms using Java,
+                C#, Python, and AWS.
               </Paragraph>
               <Space wrap size={[8, 8]}>
                 <Tag icon={<DatabaseOutlined />} color="processing">
-                  Data Engineering
+                  Backend & APIs
                 </Tag>
                 <Tag icon={<ThunderboltOutlined />} color="gold">
-                  Streaming and Low Latency
+                  Cloud Data Platforms
                 </Tag>
                 <Tag icon={<ExperimentOutlined />} color="success">
-                  ML Infrastructure
+                  Search & Vector Retrieval
                 </Tag>
                 <Tag icon={<CloudServerOutlined />} color="cyan">
-                  AWS + Azure
+                  AWS & Modern Stack
                 </Tag>
               </Space>
             </Col>
@@ -384,10 +304,10 @@ export default function Home() {
         <Divider />
 
         <section className="content-section">
-          <Title level={2}>Data Engineering Pipeline</Title>
+          <Title level={2}>Backend & Data Platform Pipeline</Title>
           <Paragraph className="section-copy">
-            End-to-end pipeline design used to move high-volume commerce data from ingestion to
-            reliable analytics and model-ready feature serving.
+            End-to-end backend and data workflows for ingesting, processing, and delivering
+            high-volume commerce data to analytics, search, and operational systems.
           </Paragraph>
           <div className="pipeline-grid">
             {pipelineStages.map((stage, index) => (
@@ -468,9 +388,9 @@ export default function Home() {
               <Card title="Credential Summary" className="detail-card">
                 <Paragraph>
                   <Text>
-                    {certifications.length} industry certifications across cloud,
-                    data engineering, AI, and application development from AWS,
-                    Azure, Databricks, and IBM.
+                    {certifications.length} industry certifications in cloud, backend,
+                    data engineering, and search infrastructure from AWS, Microsoft,
+                    Databricks, and HackerRank.
                   </Text>
                 </Paragraph>
               </Card>
