@@ -14,9 +14,9 @@ const bitter = Bitter({
 });
 
 export const metadata = {
-  title: "Jacob Adams | Senior Backend & Data Engineer",
+  title: "Jacob Adams | Senior Full-Stack AI Engineer",
   description:
-    "Senior Backend & Data Engineer with 5+ years building scalable APIs, cloud data platforms, and search infrastructure across AWS and modern backend stacks.",
+    "Senior Full-Stack AI Engineer with experience designing, developing, and deploying cloud-native applications and AI-powered platforms.",
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
   },

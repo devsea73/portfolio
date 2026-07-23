@@ -241,31 +241,11 @@ h6 {
 .education-card {
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 .education-content {
   display: flex;
   gap: 16px;
   align-items: flex-start;
-}
-.diploma-section {
-  display: grid;
-  gap: 12px;
-}
-.diploma-image-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 360px;
-  aspect-ratio: 4 / 3;
-  border-radius: 16px;
-  border: 1px solid rgba(11, 143, 135, 0.15);
-  background: rgba(255, 255, 255, 0.96);
-  overflow: hidden;
-}
-.diploma-image {
-  object-fit: contain;
-  object-position: center;
-  padding: 12px;
 }
 .education-logo {
   flex-shrink: 0;
@@ -424,11 +404,11 @@ h6 {
 }
 .pipeline-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(5, minmax(240px, 1fr));
   gap: 14px;
 }
 .pipeline-card {
-  height: 100%;
+  min-height: 240px;
   border: 1px solid rgba(11, 143, 135, 0.16);
   border-radius: 12px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(242, 249, 255, 0.9) 100%);
@@ -442,6 +422,28 @@ h6 {
   color: #0b8f87;
   font-weight: 700;
   letter-spacing: 0.04em;
+}
+.pipeline-tag {
+  display: inline-flex;
+  flex-wrap: wrap;
+  white-space: normal;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.pipeline-card {
+  min-height: 260px;
+  border: 1px solid rgba(11, 143, 135, 0.16);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(242, 249, 255, 0.9) 100%);
+}
+.pipeline-card .ant-card-body {
+  padding: 14px;
+}
+.pipeline-card p {
+  min-height: 96px;
+}
+.pipeline-card .ant-typography {
+  word-break: break-word;
 }
 .pipeline-card h4 {
   margin-bottom: 8px;
